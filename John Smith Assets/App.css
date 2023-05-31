@@ -1,30 +1,40 @@
-/* google fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@500&display=swap');
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
-/* Variables css */
+/*=============== VARIABLES CSS ===============*/
 :root {
   --header-height: 3rem;
 
-  /* colors */
-  /* color mode HSL(hue, saturasion, lightness */
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
   --hue: 0;
   --sat: 0%;
-  --tittle-color: hsl(var(--hue), var(--sat), 20%);
+  --title-color: hsl(var(--hue), var(--sat), 20%);
   --title-color-dark: hsl(var(--hue), var(--sat), 0%);
-  --text-color: hsl(var(--hue), var(--sat), 46%%);
+  --text-color: hsl(var(--hue), var(--sat), 46%);
   --body-color: hsl(var(--hue), var(--sat), 98%);
   --container-color: #fff;
-  
-  /* font and typography */
+
+  /*========== Font and typography ==========*/
   --body-font: "Poppins", sans-serif;
 
-  /* font weight */
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --big-font-size: 3.5rem;
+  --h1-font-size: 2.25rem;
+  --h2-font-size: 1.5rem;
+  --h3-font-size: 1.25rem;
+  --normal-font-size: 1rem;
+  --small-font-size: 0.875rem;
+  --smaller-font-size: 0.813rem;
+  --tiny-font-size: 0.625rem;
+
+  /*========== Font weight ==========*/
   --font-normal: 400;
   --font-medium: 500;
   --font-semi-bold: 600;
-  
-  /* margenes bottom */
 
+  /*========== Margenes Bottom ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
   --mb-0-25: 0.25rem;
   --mb-0-5: 0.5rem;
   --mb-0-75: 0.75rem;
@@ -32,34 +42,32 @@
   --mb-1-5: 1.5rem;
   --mb-2: 2rem;
   --mb-2-5: 2.5rem;
-  --mb-3: 3.5rem;
+  --mb-3: 3rem;
 
-  /* z index */
---z-tooltip: 10;
---z-fixed: 100;
---z-modal: 1000;
-
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+  --z-modal: 1000;
 }
 
-/* responsive typography */
+/* Responsive typography */
 @media screen and (max-width: 992px) {
   :root {
     --big-font-size: 2.75rem;
     --h1-font-size: 1.5rem;
     --h2-font-size: 1.25rem;
     --h3-font-size: 1rem;
-    --normal-font-size: 0.928rem;
+    --normal-font-size: 0.938rem;
     --small-font-size: 0.813rem;
-    --normal-font-size: 0.75rem;
-
+    --smaller-font-size: 0.75rem;
   }
 }
 
-/* base */
+/*=============== BASE ===============*/
 * {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
@@ -69,18 +77,20 @@ html {
 body,
 button,
 input,
-textarea{
+textarea {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
 }
 
-body{
+body {
   background-color: var(--body-color);
   color: var(--text-color);
 }
 
-h1, h2, h3 {
-  color: var(--tittle-color);
+h1,
+h2,
+h3 {
+  color: var(--title-color);
   font-weight: var(--font-semi-bold);
 }
 
@@ -95,7 +105,7 @@ a {
 button {
   cursor: pointer;
   border: none;
-  outline:none ;
+  outline: none;
 }
 
 img {
@@ -103,14 +113,14 @@ img {
   height: auto;
 }
 
-/* reusable css classes */
+/*=============== REUSABLE CSS CLASSES ===============*/
 .section {
   padding: 6rem 0 2rem;
 }
 
-.section__tittle {
+.section__title {
   font-size: var(--h1-font-size);
-  color: var(--tittle-color)
+  color: var(--title-color);
 }
 
 .section__subtitle {
@@ -119,12 +129,12 @@ img {
   margin-bottom: 4rem;
 }
 
-.section__tittle,
+.section__title,
 .section__subtitle {
   text-align: center;
 }
 
-/* layout */
+/*=============== LAYOUT ===============*/
 .container {
   max-width: 968px;
   margin-left: auto;
@@ -136,12 +146,12 @@ img {
   gap: 1.5rem;
 }
 
-/* buttons */
+/*=============== BUTTONS ===============*/
 .button {
   display: inline-block;
-  background-color: var(--tittle-color);
+  background-color: var(--title-color);
   color: var(--container-color);
-  padding: 1.5rem 2rem;
+  padding: 1.25rem 2rem;
   border-radius: 1rem;
   font-weight: var(--font-medium);
 }
@@ -157,46 +167,52 @@ img {
 .button--flex {
   display: inline-flex;
   align-items: center;
-} 
+}
 
-/* breakpoints */
-
-/* large devices */
+/*=============== BREAKPOINTS ===============*/
+/* For large devices */
 @media screen and (max-width: 992px) {
   .container {
     margin-left: var(--mb-1-5);
     margin-right: var(--mb-1-5);
   }
+
+  .button {
+    padding: 1rem 1.75rem;
+  }
+
+  .button__icon {
+    width: 22px;
+    height: 22px;
+  }
 }
 
-/* medium devices */
+/* For medium devices */
 @media screen and (max-width: 768px) {
+  body {
+    margin: 0 0 var(--header-height) 0;
+  }
+
+  .section {
+    padding: 2rem 0 4rem;
+  }
+
+  .section__subtitle {
+    margin-bottom: var(--mb-3);
+  }
 }
 
 @media screen and (max-width: 576px) {
 }
 
-/* small devices */
+/* For small devices */
 @media screen and (max-width: 350px) {
-  container {
+  :root {
+    --big-font-size: 2.25rem;
+  }
+
+  .container {
     margin-left: var(--mb-1);
     margin-right: var(--mb-1);
   }
-}
-
-.About {
-  text-align: center;
-  position: relative;
-}
-
-.about__img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.about__data {
-  text-align: center;
-  position: relative;
-  padding: 3rem;
 }
